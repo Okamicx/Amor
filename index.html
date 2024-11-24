@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quieres ser mi novia?</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #FF69B4;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .yes {
+      background-color: #FFD700;
+      color: white;
+    }
+
+    .yes:hover {
+      background-color: #FFA500;
+    }
+
+    .no {
+      background-color: #FF6347;
+      color: white;
+      position: absolute;
+    }
+
+    .no:hover {
+      background-color: #FF4500;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.8em;
+      color: #FF1493;
+    }
+</style>
+</head>
+<body>
+  <h1>¿Quieres ser mi novia?</h1>
+  <button class="button yes" onclick="sayYes()">💖 Sí 💖</button>
+  <button class="button no" id="noButton" onmouseover="moveNo()">💔 No 💔</button>
+  <p class="result" id="result"></p>
+
+  <script>
+    function sayYes() {
+      document.getElementById('result').textContent = "¡Gracias por decir que sí! 💕";
+      document.getElementById('noButton').style.display = 'none';
+    }
+
+    function moveNo() {
+      const noButton = document.getElementById('noButton');
+      const maxWidth = window.innerWidth - noButton.offsetWidth;
+      const maxHeight = window.innerHeight - noButton.offsetHeight;
+      const newX = Math.random() * maxWidth;
+      const newY = Math.random() * maxHeight;
+
+      noButton.style.left = `${newX}px`;
+      noButton.style.top = `${newY}px`;
+    }
+  </script>
+</body>
+</html>  
